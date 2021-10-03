@@ -46,11 +46,11 @@
                         €
                     </div>
                 </div>
-                {# <div class="bouton-detail">
-                    <a href="{{ path('evenement-detail', { 'slug' : evenement.id }) }}" id="bouton-detail">
+                <div class="bouton-detail">
+                    <a href="{{ path('evenement-details',{'slug': evenement.slug}) }}" id="bouton-detail">
                         detail
                     </a>
-                </div> #}
+                </div>
             </div>
         </div>
     {% endfor %}

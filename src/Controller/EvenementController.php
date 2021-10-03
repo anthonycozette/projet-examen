@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Evenement;
 use App\Repository\EvenementRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,6 +21,14 @@ class EvenementController extends AbstractController
 
         return $this->render('evenement/index.html.twig', [
             'evenements' => $evenements,
+        ]);
+    }
+
+    #[Route('/evenement/{slug}', name: 'evenement-details')]
+    public function detail(Evenement $evenement): Response
+    {
+        return $this->render('evenement/details.html.twig', [
+            'evenement' => $evenement,
         ]);
     }
 }
