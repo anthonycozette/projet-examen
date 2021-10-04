@@ -9,7 +9,9 @@
         <div class="row mt-4" id="evenement">
 
             <div class="col-3">
-                <img src="{{ vich_uploader_asset(evenement, 'imageFile') }}" alt="" class="img-fluid"></div>
+                <a href="{{ path('evenement-details', {'slug':evenement.slug}) }}">
+                    <img src="{{ vich_uploader_asset(evenement, 'imageFile') }}" alt="" class="img-fluid"></a>
+                </div>
 
                 <div class="col-6">
                     <h3 class="text-center">

@@ -28,3 +28,7 @@ yarn-error.log
 # /public/uploads/evenements*
 # !/public/uploads/evenements/th.jpg
 # !/public/uploads/evenements/image6.jpeg
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###
