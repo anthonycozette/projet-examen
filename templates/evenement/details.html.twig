@@ -9,7 +9,7 @@
     <div class="row mt-3">
 
         <div class="col-8">
-            <img src="{{ evenement.files }}" alt="">
+            <img src="{{ vich_uploader_asset(evenement, 'imageFile') }}" alt="">
                 <div class="text-center img-fluid">
                     <h1>
                         {{ evenement.nom }}
@@ -31,7 +31,7 @@
                         </h3>
                         <div>
                             {{ evenement.dateDebut|date('d-m-Y') }} au
-                        {{ evenement.dateFin|date('d-m-Y') }}
+                            {{ evenement.dateFin|date('d-m-Y') }}
                         </div>
                     </div>
 

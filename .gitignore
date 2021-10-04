@@ -25,3 +25,6 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+# /public/uploads/evenements*
+# !/public/uploads/evenements/th.jpg
+# !/public/uploads/evenements/image6.jpeg

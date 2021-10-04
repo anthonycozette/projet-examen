@@ -15,9 +15,9 @@ class EvenementController extends AbstractController
     #[Route('/evenement', name: 'evenement')]
     public function index(EvenementRepository $evenementRepository, PaginatorInterface $paginator, Request $request): Response
     {
-        $data = $evenementRepository->findAll();
+        $data = $evenementRepository->findBy([], ['id' => 'DESC']);
 
-        $evenements = $paginator->paginate($data, $request->query->getInt('page',1), 5);
+        $evenements = $paginator->paginate($data, $request->query->getInt('page', 1), 5);
 
         return $this->render('evenement/index.html.twig', [
             'evenements' => $evenements,

@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use DateTime;
 use App\Entity\User;
 use DateTimeImmutable;
 use App\Entity\Evenement;
@@ -36,7 +37,7 @@ class AppFixtures extends Fixture
         $manager->flush();
 
         // creation de 5 evenement
-        $date = new DateTimeImmutable();
+        $date = new DateTime();
 
         $evenement = new Evenement();
         $evenement->setNom('dongeon dragon')
@@ -45,7 +46,7 @@ class AppFixtures extends Fixture
             ->setDateDebut($date)
             ->setDateFin($date)
             ->setCreatedAt($date)
-            ->setFiles('/img/evenements/th.jpg')
+            ->setFiles('th.jpg')
             ->setVille('chilly')
             ->setCodePostal('91380')
             ->setAdresse(' 4 rue des roses')
@@ -61,7 +62,7 @@ class AppFixtures extends Fixture
             ->setDateDebut($date)
             ->setDateFin($date)
             ->setCreatedAt($date)
-            ->setFiles('/img/evenements/image6.jpeg')
+            ->setFiles('image6.jpeg')
             ->setVille('chilly')
             ->setCodePostal('91380')
             ->setAdresse(' 4 rue des roses')
@@ -77,7 +78,7 @@ class AppFixtures extends Fixture
             ->setDateDebut($date)
             ->setDateFin($date)
             ->setCreatedAt($date)
-            ->setFiles('/img/evenements/th.jpg')
+            ->setFiles('th.jpg')
             ->setVille('chilly')
             ->setCodePostal('91380')
             ->setAdresse(' 4 rue des roses')
@@ -93,7 +94,7 @@ class AppFixtures extends Fixture
             ->setDateDebut($date)
             ->setDateFin($date)
             ->setCreatedAt($date)
-            ->setFiles('/img/evenements/image6.jpeg')
+            ->setFiles('image6.jpeg')
             ->setVille('chilly')
             ->setCodePostal('91380')
             ->setAdresse(' 4 rue des roses')
@@ -109,7 +110,7 @@ class AppFixtures extends Fixture
             ->setDateDebut($date)
             ->setDateFin($date)
             ->setCreatedAt($date)
-            ->setFiles('/img/evenements/th.jpg')
+            ->setFiles('th.jpg')
             ->setVille('chilly')
             ->setCodePostal('91380')
             ->setAdresse(' 4 rue des roses')
@@ -125,7 +126,7 @@ class AppFixtures extends Fixture
             ->setDateDebut($date)
             ->setDateFin($date)
             ->setCreatedAt($date)
-            ->setFiles('/img/evenements/image6.jpeg')
+            ->setFiles('image6.jpeg')
             ->setVille('chilly')
             ->setCodePostal('91380')
             ->setAdresse(' 4 rue des roses')
@@ -141,7 +142,7 @@ class AppFixtures extends Fixture
             ->setDateDebut($date)
             ->setDateFin($date)
             ->setCreatedAt($date)
-            ->setFiles('/img/evenements/th.jpg')
+            ->setFiles('th.jpg')
             ->setVille('chilly')
             ->setCodePostal('91380')
             ->setAdresse(' 4 rue des roses')
@@ -157,7 +158,7 @@ class AppFixtures extends Fixture
             ->setDateDebut($date)
             ->setDateFin($date)
             ->setCreatedAt($date)
-            ->setFiles('/img/evenements/image6.jpeg')
+            ->setFiles('image6.jpeg')
             ->setVille('chilly')
             ->setCodePostal('91380')
             ->setAdresse(' 4 rue des roses')
@@ -173,7 +174,7 @@ class AppFixtures extends Fixture
             ->setDateDebut($date)
             ->setDateFin($date)
             ->setCreatedAt($date)
-            ->setFiles('/img/evenements/th.jpg')
+            ->setFiles('th.jpg')
             ->setVille('chilly')
             ->setCodePostal('91380')
             ->setAdresse(' 4 rue des roses')
@@ -189,7 +190,7 @@ class AppFixtures extends Fixture
             ->setDateDebut($date)
             ->setDateFin($date)
             ->setCreatedAt($date)
-            ->setFiles('/img/evenements/image6.jpeg')
+            ->setFiles('image6.jpeg')
             ->setVille('chilly')
             ->setCodePostal('91380')
             ->setAdresse(' 4 rue des roses')

@@ -6,9 +6,12 @@ use App\Repository\EvenementRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=EvenementRepository::class)
+ * @Vich\Uploadable
  */
 class Evenement
 {
@@ -60,9 +63,16 @@ class Evenement
     private $codePostal;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+/**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Vich\UploadableField(mapping="evenement_images", fileNameProperty="files")
+     * @var File
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -191,16 +201,33 @@ class Evenement
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+
+   
+    public function setImageFile(File $files = null)
+    {
+        $this->imageFile = $files;
+
+        if ($files) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->createdAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 
     public function getFiles(): ?string
@@ -208,7 +235,7 @@ class Evenement
         return $this->files;
     }
 
-    public function setFiles(string $files): self
+    public function setFiles(?string $files): self
     {
         $this->files = $files;
 
@@ -267,5 +294,10 @@ class Evenement
         $this->slug = $slug;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->nom;
     }
 }
