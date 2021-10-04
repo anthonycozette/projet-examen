@@ -2,11 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\CommentaireRepository;
+use App\Entity\Evenement;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CommentaireRepository;
+use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 
 /**
  * @ORM\Entity(repositoryClass=CommentaireRepository::class)
+ * @ORM\HasLifecycleCallbacks
  */
 class Commentaire
 {
@@ -23,7 +26,7 @@ class Commentaire
     private $contenu;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
@@ -48,6 +51,11 @@ class Commentaire
      */
     private $email;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isPublished;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -65,12 +73,12 @@ class Commentaire
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
@@ -121,6 +129,18 @@ class Commentaire
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getIsPublished(): ?bool
+    {
+        return $this->isPublished;
+    }
+
+    public function setIsPublished(bool $isPublished): self
+    {
+        $this->isPublished = $isPublished;
 
         return $this;
     }
