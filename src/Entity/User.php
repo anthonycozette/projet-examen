@@ -73,15 +73,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $evenements;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="user", orphanRemoval=true)
-     */
-    private $commentaire;
+    // /**
+    //  * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="user", orphanRemoval=true)
+    //  */
+    // private $commentaire;
 
     public function __construct()
     {
         $this->evenements = new ArrayCollection();
-        $this->commentaire = new ArrayCollection();
+        // $this->commentaire = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -275,33 +275,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Commentaire[]
-     */
-    public function getCommentaire(): Collection
-    {
-        return $this->commentaire;
-    }
+    // /**
+    //  * @return Collection|Commentaire[]
+    //  */
+    // public function getCommentaire(): Collection
+    // {
+    //     return $this->commentaire;
+    // }
 
-    public function addCommentaire(Commentaire $commentaire): self
-    {
-        if (!$this->commentaire->contains($commentaire)) {
-            $this->commentaire[] = $commentaire;
-            $commentaire->setUser($this);
-        }
+    // public function addCommentaire(Commentaire $commentaire): self
+    // {
+    //     if (!$this->commentaire->contains($commentaire)) {
+    //         $this->commentaire[] = $commentaire;
+    //         $commentaire->setUser($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removeCommentaire(Commentaire $commentaire): self
-    {
-        if ($this->commentaire->removeElement($commentaire)) {
-            // set the owning side to null (unless already changed)
-            if ($commentaire->getUser() === $this) {
-                $commentaire->setUser(null);
-            }
-        }
+    // public function removeCommentaire(Commentaire $commentaire): self
+    // {
+    //     if ($this->commentaire->removeElement($commentaire)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($commentaire->getUser() === $this) {
+    //             $commentaire->setUser(null);
+    //         }
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }

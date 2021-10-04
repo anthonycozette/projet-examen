@@ -32,11 +32,21 @@ class Commentaire
      */
     private $evenement;
 
+    // /**
+    //  * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaire")
+    //  * @ORM\JoinColumn(nullable=false)
+    //  */
+    // private $user;
+
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaire")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $user;
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
 
     public function getId(): ?int
     {
@@ -79,14 +89,38 @@ class Commentaire
         return $this;
     }
 
-    public function getUser(): ?User
+    // public function getUser(): ?User
+    // {
+    //     return $this->user;
+    // }
+
+    // public function setUser(?User $user): self
+    // {
+    //     $this->user = $user;
+
+    //     return $this;
+    // }
+
+    public function getNom(): ?string
     {
-        return $this->user;
+        return $this->nom;
     }
 
-    public function setUser(?User $user): self
+    public function setNom(string $nom): self
     {
-        $this->user = $user;
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }
