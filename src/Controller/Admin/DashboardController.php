@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Commentaire;
+use App\Entity\Contact;
 use App\Entity\Evenement;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -33,5 +34,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('User', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('Evenements', 'fas fa-list', Evenement::class);
         yield MenuItem::linkToCrud('Commentaire', 'fas fa-comment', Commentaire::class);
+        yield MenuItem::linkToCrud('Message de contact', 'fas fa-email', Contact::class);
     }
 }
