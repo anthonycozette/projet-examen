@@ -34,10 +34,10 @@ class EasyAdminSubscriber implements EventSubscriberInterface
 
         if (($entity instanceof Evenement)) {
             $now = new DateTime('now');
-        $entity->setCreatedAt($now);
+            $entity->setCreatedAt($now);
 
-        $user = $this->security->getUser();
-        $entity->setUser($user);
+            $user = $this->security->getUser();
+            $entity->setUser($user);
         }
         return;
     }
