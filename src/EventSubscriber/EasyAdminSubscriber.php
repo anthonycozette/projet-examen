@@ -17,7 +17,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
 
     public function __construct(SluggerInterface $slugger, Security $security)
     {
-        $this->slugger = $slugger;
+        // $this->slugger = $slugger;
         $this->security = $security;
     }
 
@@ -33,6 +33,9 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         $entity = $event->getEntityInstance();
 
         if (($entity instanceof Evenement)) {
+            // $slug = $this->slugger->slug($entity->getNom());
+            // $entity->setSlug($slug);
+
             $now = new DateTime('now');
             $entity->setCreatedAt($now);
 

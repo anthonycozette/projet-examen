@@ -16,10 +16,10 @@ class UserCrudController extends AbstractCrudController
         return User::class;
     }
 
-    public function configureActions(Actions $actions): Actions
-    {
-        return $actions
-            ->add(Crud::PAGE_INDEX, Action::DETAIL)
-            ->disable(Action::NEW, Action::EDIT);
-    }
+//     public function configureActions(Actions $actions): Actions
+//     {
+//         return $actions
+//             ->add(Crud::PAGE_INDEX, Action::DETAIL)
+//             ->disable(Action::NEW, Action::EDIT);
+//     }
 }

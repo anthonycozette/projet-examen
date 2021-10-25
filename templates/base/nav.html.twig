@@ -17,17 +17,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('presentation') }}">
                         Presentation du jeux GN
-                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('evenement') }}">
                         Calendrier des jeux
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        Creation Evenement
                     </a>
                 </li>
 
@@ -37,8 +30,21 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                {% if is_granted('ROLE_USER') %}
+                    <li class="nav-item d-flex ms-auto">
+                        <a class="nav-link" href="{{ path('creation_evenement') }}">
+                            Creation Evenement
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('user') }}">
+                            Mon compte
+                        </a>
+                    </li>
+                {% endif %}
+                
                     {% if is_granted('ROLE_USER') %}
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_logout') }}">
                             Deconnexion
                         </a>
@@ -46,16 +52,16 @@
                         <a class="nav-link" href="{{ path('app_login') }}">
                             Connexion
                         </a>
+                    </li>
                     {% endif %}
-                </li>
-                {% if not is_granted('ROLE_USER')%}
-                <li>
-                <a class="nav-link" href="{{path('app_register')}}">Inscription</a></li>
-            {% endif %}
-                </li>
-            </ul>
-        </div>
+                {% if not is_granted('ROLE_USER') %}
+                    <li>
+                        <a class="nav-link" href="{{ path('app_register') }}">
+                            Inscription
+                        </a>
+                    </li>
+                {% endif %}
+            </li>
+        </ul>
     </div>
-</nav>
-
-{# FIN NAVBAR #}
+</div></nav>{# FIN NAVBAR #}

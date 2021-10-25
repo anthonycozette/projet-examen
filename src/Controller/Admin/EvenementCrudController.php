@@ -35,7 +35,6 @@ class EvenementCrudController extends AbstractCrudController
             DateField::new('dateDebut'),
             DateField::new('dateFin'),
             DateField::new('createdAt')->HideOnForm(),
-            SlugField::new('slug')->setTargetFieldName('nom')->hideOnIndex(),
         ];
     }
 
