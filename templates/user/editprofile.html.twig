@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Profile de 
+    {{ app.user.pseudo }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+        <h1>Modification du profile de {{app.user.pseudo}} </h1>
+        {{ form(form) }}
+            
+            </div>
+        </div>
+{% endblock %}
+    
